@@ -1,0 +1,180 @@
+:root {
+  --bg-color: #f4f7f6;
+  --text-color: #333;
+  --card-bg: #ffffff;
+  --primary: #4a90e2;
+  --danger: #e74c3c;
+  --border: #e0e0e0;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header h1 { margin: 0; color: var(--primary); }
+
+/* Layout Grid */
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .main-grid { grid-template-columns: 1fr; }
+}
+
+/* Karty i Panele */
+.card {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+}
+
+.card h3 { margin-top: 0; border-bottom: 2px solid var(--bg-color); padding-bottom: 10px;}
+
+/* Formularze */
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+  width: 100%;
+}
+
+.btn-primary:hover { background-color: #357abd; }
+
+.form-inline {
+  display: flex;
+  gap: 5px;
+}
+.form-inline button {
+  background-color: var(--primary);
+  color: white;
+  flex-shrink: 0;
+}
+
+/* Kategorie (Tags) */
+.tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.tag {
+  background: #eef2f5;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+}
+
+.x-btn {
+  background: none;
+  color: #999;
+  padding: 0 0 0 5px;
+  font-size: 1.2em;
+}
+.x-btn:hover { color: var(--danger); }
+
+/* Podgląd LaTeX */
+.preview-box {
+  background: #f8f9fa;
+  border: 1px dashed #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Lista Wzorów */
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.formula-card {
+  background: var(--card-bg);
+  border-left: 5px solid var(--primary);
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.formula-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.badge {
+  background: var(--primary);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.delete-btn {
+  background: transparent;
+  color: var(--danger);
+  padding: 2px 5px;
+  font-size: 0.8rem;
+}
+
+.formula-render {
+  font-size: 1.2em;
+  padding: 10px 0;
+  overflow-x: auto;
+}
+
+.formula-desc {
+  color: #666;
+  margin: 5px 0;
+}
+
+.date {
+  font-size: 0.75rem;
+  color: #aaa;
+}
