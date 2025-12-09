@@ -133,8 +133,8 @@ const App: React.FC = () => {
   return (
     <div className="container">
       <header className="header">
-        <h1>📐 Math Notes</h1>
-        <p>Twoja baza wzorów LaTeX</p>
+        <h1> Math Notes</h1>
+        <p>Twoja baza wzorów </p>
       </header>
 
       <div className="main-grid">
