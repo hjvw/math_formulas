@@ -78,7 +78,7 @@ export interface Formula {
   latex: string;
   description: string;
   categoryId: number;
-  createdAt: string; // czytelna data lub ISO string
+  createdAt: string; 
 }
 
 export interface NewFormulaData extends Omit<Formula, 'id' | 'createdAt'> {}
