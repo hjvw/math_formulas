@@ -90,26 +90,26 @@ export interface NewFormulaData extends Omit<Formula, 'id' | 'createdAt'> {}
 
 ### App.tsx
 
-**Rola:** centralny punkt aplikacji — pobiera / zapisuje dane, zarządza stanem i przekazuje callbacki do komponentów UI.
+**Rola:** centralny punkt aplikacji - pobiera / zapisuje dane, zarządza stanem i przekazuje callbacki do komponentów UI.
 
 **Główne stany:**
 
-* `categories: Category[]` — aktualna lista kategorii z backendu.
-* `formulas: Formula[]` — aktualna lista wzorów z backendu.
-* `loading: boolean` — flaga ładowania podczas pobierania danych.
-* `error: string | null` — przechowuje komunikat błędu, jeśli wystąpi.
+* `categories: Category[]` - aktualna lista kategorii z backendu.
+* `formulas: Formula[]` - aktualna lista wzorów z backendu.
+* `loading: boolean` - flaga ładowania podczas pobierania danych.
+* `error: string | null` - przechowuje komunikat błędu, jeśli wystąpi.
 
 **Główne funkcje:**
 
-* `loadData()` — pobiera kategorie i wzory równolegle (`Promise.all`) i zapisuje je do stanu. Użycie równoległego zapytania skraca czas startu aplikacji.
+* `loadData()` - pobiera kategorie i wzory równolegle (`Promise.all`) i zapisuje je do stanu. Użycie równoległego zapytania skraca czas startu aplikacji.
 
-* `handleAddCategory(name: string)` — podstawowa walidacja, tworzenie obiektu kategorii (generowane `id` lokalnie przez `Date.now()`), wysyłanie `POST` do `/categories`, oraz aktualizacja stanu `categories` po pomyślnym zakończeniu żądania. Działa asynchronicznie.
+* `handleAddCategory(name: string)` - podstawowa walidacja, tworzenie obiektu kategorii (generowane `id` lokalnie przez `Date.now()`), wysyłanie `POST` do `/categories`, oraz aktualizacja stanu `categories` po pomyślnym zakończeniu żądania. Działa asynchronicznie.
 
-* `handleDeleteCategory(id: number)` — weryfikacja, czy kategoria ma przypisane wzory (blokada usuwania), `DELETE` do `/categories/:id` i usunięcie jej ze stanu. Blokada zapobiega powstaniu niezgodności (wzory bez kategorii).
+* `handleDeleteCategory(id: number)` - weryfikacja, czy kategoria ma przypisane wzory (blokada usuwania), `DELETE` do `/categories/:id` i usunięcie jej ze stanu. Blokada zapobiega powstaniu niezgodności (wzory bez kategorii).
 
-* `handleAddFormula(data: NewFormulaData)` — walidacja pól, zbudowanie obiektu `Formula` (dodanie `id` i `createdAt` w warstwie aplikacji), `POST` do `/formulas` oraz dodanie nowego wzoru na początek listy `formulas`.
+* `handleAddFormula(data: NewFormulaData)` - walidacja pól, zbudowanie obiektu `Formula` (dodanie `id` i `createdAt` w warstwie aplikacji), `POST` do `/formulas` oraz dodanie nowego wzoru na początek listy `formulas`.
 
-* `handleDeleteFormula(id: number)` — `DELETE` do `/formulas/:id` i odfiltrowanie wzoru w stanie.
+* `handleDeleteFormula(id: number)` - `DELETE` do `/formulas/:id` i odfiltrowanie wzoru w stanie.
 
 **Render:**
 
@@ -131,7 +131,7 @@ export interface NewFormulaData extends Omit<Formula, 'id' | 'createdAt'> {}
 
 **Stan lokalny:**
 
-* `newCategoryName: string` — kontrolowane pole inputu.
+* `newCategoryName: string` - kontrolowane pole inputu.
 
 **Zachowanie:**
 
@@ -140,7 +140,7 @@ export interface NewFormulaData extends Omit<Formula, 'id' | 'createdAt'> {}
 
 **Uzasadnienie projektowe:**
 
-* Komponent nie wykonuje zapytań do API — otrzymuje callbacki z `App.tsx`. Dzięki temu jest łatwy do testowania i ponownego użycia.
+* Komponent nie wykonuje zapytań do API - otrzymuje callbacki z `App.tsx`. Dzięki temu jest łatwy do testowania i ponownego użycia.
 
 ---
 
@@ -155,9 +155,9 @@ export interface NewFormulaData extends Omit<Formula, 'id' | 'createdAt'> {}
 
 **Stany lokalne:**
 
-* `latexInput: string` — zawartość pola LaTeX (textarea).
-* `descInput: string` — opis wzoru.
-* `selectedCatId: string` — wybrana kategoria (string, bo select zwraca string).
+* `latexInput: string` - zawartość pola LaTeX (textarea).
+* `descInput: string` - opis wzoru.
+* `selectedCatId: string` - wybrana kategoria (string, bo select zwraca string).
 
 **Zachowanie:**
 
@@ -185,12 +185,12 @@ export interface NewFormulaData extends Omit<Formula, 'id' | 'createdAt'> {}
 
 **Stany lokalne:**
 
-* `selectedCategory: number` — 0 oznacza "Wszystkie".
-* `searchTerm: string` — fraza wyszukiwania.
+* `selectedCategory: number` - 0 oznacza "Wszystkie".
+* `searchTerm: string` - fraza wyszukiwania.
 
 **Filtrowanie:**
 
-* Użycie `useMemo()` do optymalizacji — lista jest przeliczana tylko, gdy zmienią się `formulas`, `selectedCategory` lub `searchTerm`.
+* Użycie `useMemo()` do optymalizacji - lista jest przeliczana tylko, gdy zmienią się `formulas`, `selectedCategory` lub `searchTerm`.
 * Filtrowanie case-insensitive po `description` i `latex`.
 
 **Render:**
@@ -248,7 +248,7 @@ Upewnij się, że `db.json` ma poprawną strukturę z polami `categories` i `for
 
 * **Podgląd LaTeX**: renderowanie w komponencie formularza zmniejsza liczbę błędów wprowadzania wzorów.
 
-* **Filtrowanie po stronie klienta**: lepsze UX — natychmiastowy feedback; akceptowalne przy niewielkiej liczbie rekordów.
+* **Filtrowanie po stronie klienta**: lepsze UX - natychmiastowy feedback; akceptowalne przy niewielkiej liczbie rekordów.
 
 ---
 
@@ -258,7 +258,7 @@ Upewnij się, że `db.json` ma poprawną strukturę z polami `categories` i `for
 * Paginacja i serwerowe filtrowanie przy dużej liczbie rekordów.
 * Autouzupełnianie i zaawansowane wyszukiwanie (fuzzy search).
 * Eksport import (CSV/JSON/PDF) i backupy.
-* Uwierzytelnianie i użytkownicy — wielozadaniowe repozytoria wzorów.
+* Uwierzytelnianie i użytkownicy - wielozadaniowe repozytoria wzorów.
 * Migracja z `json-server` do rzeczywistej bazy.
 
 ---
