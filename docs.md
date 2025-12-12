@@ -1,4 +1,4 @@
-# Math Notes — Dokumentacja Techniczna
+# Math Notes Dokumentacja Techniczna
 
 Aplikacja **Math Notes** pozwala na przechowywanie i zarządzanie wzorami matematycznymi zapisanymi w LaTeX. Wzory można grupować w kategorie, wyszukiwać, filtrować oraz przeglądać w podglądzie renderowanym przez KaTeX. Backend aplikacji w trybie deweloperskim obsługiwany jest przez `json-server` (plik `db.json`).
 
