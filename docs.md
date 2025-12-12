@@ -58,7 +58,7 @@ src/
  │    ├── CategoryManager.tsx
  │    ├── FormulaForm.tsx
  │    └── FormulaList.tsx
- └── ...                # inne pliki (ikonki, assets, konfiguracje)
+ └── ...                # inne pliki (assets, konfiguracje)
 ```
 
 ---
